@@ -10,7 +10,7 @@ import NotFound from "./pages/NotFound";
 const mockData = [
     {
         id: 1,
-        createdDate: new Date().getTime(),
+        createdDate: new Date("2024-10-18").getTime(),
         emotionId: 1,
         content: "1번 일기 내용",
     },
@@ -22,7 +22,7 @@ const mockData = [
     },
     {
         id: 3,
-        createdDate: new Date().getTime(),
+        createdDate: new Date("2024-02-18").getTime(),
         emotionId: 3,
         content: "3번 일기 내용",
     },
@@ -47,8 +47,8 @@ function reducer(state, action) {
     }
 }
 
-const DiaryStateContext = createContext();
-const DiaryDispatchContext = createContext();
+export const DiaryStateContext = createContext();
+export const DiaryDispatchContext = createContext();
 
 function App() {
     const [data, dispatch] = useReducer(reducer, mockData);
@@ -93,9 +93,9 @@ function App() {
             <DiaryStateContext.Provider value={data}>
                 <DiaryDispatchContext.Provider
                     value={{
-                      onCreate,
-                      onUpdate,
-                      onDelete,
+                        onCreate,
+                        onUpdate,
+                        onDelete,
                     }}
                 >
                     <Routes>
@@ -106,7 +106,7 @@ function App() {
                             element={<Diary />}
                         />
                         <Route path="/edit/:id" element={<Edit />} />
-                        <Route path="/*" element={<NotFound />} />
+                        <Route path="*" element={<NotFound />} />
                     </Routes>
                 </DiaryDispatchContext.Provider>
             </DiaryStateContext.Provider>
