@@ -16,7 +16,7 @@ const DiaryList = ({ data }) => {
         // sort는 원본 배열을 수정해버리므로 toSorted 사용
         // js의 정렬 함수들은 객체 값을 비교하지 못함
         // 콜백 함수를 이용해서 비교함수 넣어줌
-        return data.toSorted(() => {
+        return data.toSorted((a, b) => {
             if (sortType === "oldest") {
                 return Number(a.createdDate) - Number(b.createdDate);
             } else {

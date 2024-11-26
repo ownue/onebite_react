@@ -12,7 +12,8 @@
 
 .Header .header_center {
     width: 50%;
-    font-size: 25px;
+    font-weight: 700;
+    font-size: 24px;
     justify-content: center;
 }
 
